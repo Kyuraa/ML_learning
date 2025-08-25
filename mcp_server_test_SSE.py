@@ -51,6 +51,8 @@ async def handle_messages(request: Request):
                 result = subtract(**params)
             elif tool_name == "multiply":
                 result = multiply(**params)
+            elif tool_name == "reverse_text":
+                result = reverse_text(**params)
             else:
                 raise ValueError(f"Unknown tool: {tool_name}")
 
@@ -77,6 +79,10 @@ def subtract(a: int, b: int) -> int:
 @mcp.tool()
 def multiply(a: int, b: int) -> int:
     return a * b
+
+@mcp.tool()
+def reverse_text(text: str) -> str:
+        return text[::-1]
 
 # Starlette setup
 middleware = [

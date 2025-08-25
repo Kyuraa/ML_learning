@@ -56,8 +56,10 @@ async def main():
     print(json.dumps(tools, indent=2))
     
     # Add two numbers
-    result = await client.add_numbers(5, 3)
-    print("\n5 + 3 =", result)  # Output: 8
+    a = int(input("Enter the first number: "))
+    b = int(input("Enter the second number: "))
+    result = await client.add_numbers(a, b)
+    print(f"\n{a} + {b} =", result)
     
 
 if __name__ == "__main__":
